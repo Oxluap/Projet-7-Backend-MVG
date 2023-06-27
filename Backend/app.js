@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
+const booksRoutes = require("./routes/booksRoutes");
 
 const uri =
   "mongodb+srv://Luap:Fe6FAejTmOYeO6WH@cluster0.fs6hkjc.mongodb.net/?retryWrites=true&w=majority";
@@ -15,9 +16,6 @@ mongoose
 
 app.use(cors());
 app.use(express.json());
-
-app.use((req, res) => {
-  res.json({ message: "ca fonctionne" });
-});
+app.use("/api/books", booksRoutes);
 
 module.exports = app;
