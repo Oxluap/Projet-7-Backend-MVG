@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");
 const booksRoutes = require("./routes/booksRoutes");
+const usersRoutes = require("./routes/usersRoutes");
 
 const uri =
   "mongodb+srv://Luap:Fe6FAejTmOYeO6WH@cluster0.fs6hkjc.mongodb.net/?retryWrites=true&w=majority";
@@ -17,5 +18,6 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use("/api/books", booksRoutes);
+app.use("/api/auth", usersRoutes);
 
 module.exports = app;
