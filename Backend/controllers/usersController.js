@@ -3,20 +3,26 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 exports.signup = (req, res, next) => {
-  bcrypt
-    .hash(req.body.password, 10)
-    .then((hash) => {
-      const user = new User({
-        email: req.body.email,
-        password: hash,
-      });
-      user
-        .save()
-        .then(() =>
-          res.status(201).json({ message: "Nouvel utilisateur créé" })
-        )
-        .catch((error) => res.status(400).json({ error }));
+  User.findOne({ email: req.body.email })
+    .then((user) => {
+      if (user) {
+        return res.status(400).json({
+          message: "Un utilisateur est déjà enregistré avec cet e-mail",
+        });
+      } else {
+        return bcrypt.hash(req.body.password, 10);
+      }
     })
+    .then((hash) => {
+      if (hash) {
+        const user = new User({
+          email: req.body.email,
+          password: hash,
+        });
+        return user.save();
+      }
+    })
+    .then(() => res.status(201).json({ message: "Nouvel utilisateur créé" }))
     .catch((error) => res.status(500).json({ error }));
 };
 
