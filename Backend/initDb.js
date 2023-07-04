@@ -19,7 +19,6 @@ mongoose
 async function addBooks() {
   try {
     for (let bookData of data) {
-      // Check if the book already exists in the database
       const existingBook = await Book.findOne({ id: bookData.id });
 
       if (existingBook) {
