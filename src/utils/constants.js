@@ -1,4 +1,4 @@
-const API_URL = "https://mvg-312725d828f9.herokuapp.com/";
+const API_URL = "https://mvg-312725d828f9.herokuapp.com";
 export const API_ROUTES = {
   SIGN_UP: `${API_URL}/api/auth/signup`,
   SIGN_IN: `${API_URL}/api/auth/login`,
@@ -11,5 +11,5 @@ export const APP_ROUTES = {
   SIGN_IN: "/Connexion",
   ADD_BOOK: "/Ajouter",
   BOOK: "/livre/:id",
-  UPDATE_BOOK: "livre/modifier/:id",
+  UPDATE_BOOK: "/livre/modifier/:id",
 };
