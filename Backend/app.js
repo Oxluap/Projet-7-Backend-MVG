@@ -7,6 +7,10 @@ const booksRoutes = require("./routes/booksRoutes");
 const usersRoutes = require("./routes/usersRoutes");
 
 const mongoURI = process.env.MONGO_URI;
+const corsOptions = {
+  origin: "https://jovial-marzipan-32bcea.netlify.app",
+  optionsSuccessStatus: 200,
+};
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -15,7 +19,7 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use("/api/books", booksRoutes);
