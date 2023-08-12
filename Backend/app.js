@@ -6,11 +6,10 @@ const mongoose = require("mongoose");
 const booksRoutes = require("./routes/booksRoutes");
 const usersRoutes = require("./routes/usersRoutes");
 
-const uri =
-  "mongodb+srv://Luap:Fe6FAejTmOYeO6WH@cluster0.fs6hkjc.mongodb.net/?retryWrites=true&w=majority";
+const mongoURI = process.env.MONGO_URI || "dev connexion chain";
 
 mongoose
-  .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("MongoDB Connected…");
   })
@@ -23,3 +22,5 @@ app.use("/api/books", booksRoutes);
 app.use("/api/auth", usersRoutes);
 
 module.exports = app;
+
+("mongodb+srv://Luap:Fe6FAejTmOYeO6WH@cluster0.fs6hkjc.mongodb.net/?retryWrites=true&w=majority");
