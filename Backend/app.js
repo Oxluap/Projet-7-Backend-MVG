@@ -22,5 +22,3 @@ app.use("/api/books", booksRoutes);
 app.use("/api/auth", usersRoutes);
 
 module.exports = app;
-
-("mongodb+srv://Luap:Fe6FAejTmOYeO6WH@cluster0.fs6hkjc.mongodb.net/?retryWrites=true&w=majority");
