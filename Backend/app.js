@@ -10,6 +10,7 @@ const mongoURI = process.env.MONGO_URI;
 const corsOptions = {
   origin: "https://jovial-marzipan-32bcea.netlify.app",
   optionsSuccessStatus: 200,
+  credentials: true,
 };
 
 mongoose
