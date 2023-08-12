@@ -1,4 +1,4 @@
-const API_URL = "https://mvg-23f2c347811c.herokuapp.com";
+const API_URL = "https://mvg-262382e25ee5.herokuapp.com/";
 export const API_ROUTES = {
   SIGN_UP: `${API_URL}/api/auth/signup`,
   SIGN_IN: `${API_URL}/api/auth/login`,
