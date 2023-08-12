@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const booksRoutes = require("./routes/booksRoutes");
 const usersRoutes = require("./routes/usersRoutes");
 
-const mongoURI = process.env.MONGO_URI || "dev connexion chain";
+const mongoURI = process.env.MONGO_URI;
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
