@@ -48,4 +48,6 @@ server.on("listening", () => {
   console.log("Listening on " + bind);
 });
 
-server.listen(port);
+server.listen(port, () => {
+  console.log(`server listening on ${port}`);
+});
