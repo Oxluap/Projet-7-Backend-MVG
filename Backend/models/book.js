@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const ratingSchema = new mongoose.Schema({
-  userId: { type: String, require: true },
-  grade: { type: Number, require: true },
+  userId: { type: String, required: true },
+  grade: { type: Number, required: true },
 });
 
 const bookSchema = new mongoose.Schema({
